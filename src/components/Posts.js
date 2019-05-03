@@ -26,11 +26,7 @@ class Posts extends Component {
   handleClick = () => {
     // console.log(`https://api.github.com/users/defunkt/repos?page=${this.state.next}`);
 
-    axios.get(`https://api.github.com/users/${this.state.owner}/repos?page=${this.state.next}`, {
-      headers: {
-        "Authorization": "token 9a37a3f3b8dc5c6af8cae986c338aea042e6cd84"
-      }
-    })
+    axios.get(`https://api.github.com/users/${this.state.owner}/repos?page=${this.state.next}`)
     .then((res) => {
       this.setState({ repos: this.state.repos.concat(res.data) });
 
