@@ -1,15 +1,15 @@
 import { GET_REPO, SHOW_MODAL, CLOSE_MODAL, TOGGLE_PROGRESS } from './types';
 import axios from 'axios';
 
-export const getRepos = (owner, nextPage) => dispatch => {
 
+export const getRepos = (owner, nextPage) => dispatch => {
   if (owner) {
     axios.get(`https://api.github.com/users/${owner}/repos?page=${nextPage}&sort=updated` 
-    // ,{
-    //   headers: {
-    //     "Authorization": "token c935aff1cf939502a09307767a63e8e8aece84a8"
-    //   }
-    // }
+      ,{
+        headers: {
+          "Authorization": `token ${process.env.REACT_APP_SECRET_KEY}`
+        }
+      }
     )
     .then((res) => {
       var flag = nextPage !== 1;
@@ -34,13 +34,12 @@ export const getRepos = (owner, nextPage) => dispatch => {
 }
 
 export const showModal = (repoName, owner) => dispatch => {
-
   axios.get(`https://api.github.com/repos/${owner}/${repoName}/stats/participation`
-      // ,{
-      //   headers: {
-      //     "Authorization": "token c935aff1cf939502a09307767a63e8e8aece84a8"
-      //   }
-      // }
+      ,{
+        headers: {
+          "Authorization": `token ${process.env.REACT_APP_SECRET_KEY}`
+        }
+      }
     )
     .then((res) => {
       res.data["all"] = res.data["all"].reverse().slice(0,10);
