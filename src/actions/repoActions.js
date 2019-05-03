@@ -4,11 +4,13 @@ import axios from 'axios';
 export const getRepos = (owner, nextPage) => dispatch => {
 
   if (owner) {
-    axios.get(`https://api.github.com/users/${owner}/repos?page=${nextPage}&sort=updated`, {
-      headers: {
-        "Authorization": "token c935aff1cf939502a09307767a63e8e8aece84a8"
-      }
-    })
+    axios.get(`https://api.github.com/users/${owner}/repos?page=${nextPage}&sort=updated` 
+    // ,{
+    //   headers: {
+    //     "Authorization": "token c935aff1cf939502a09307767a63e8e8aece84a8"
+    //   }
+    // }
+    )
     .then((res) => {
       var flag = nextPage !== 1;
       var patt = new RegExp('rel="next"');
@@ -33,11 +35,13 @@ export const getRepos = (owner, nextPage) => dispatch => {
 
 export const showModal = (repoName, owner) => dispatch => {
 
-  axios.get(`https://api.github.com/repos/${owner}/${repoName}/stats/participation`, {
-      headers: {
-        "Authorization": "token c935aff1cf939502a09307767a63e8e8aece84a8"
-      }
-    })
+  axios.get(`https://api.github.com/repos/${owner}/${repoName}/stats/participation`
+      // ,{
+      //   headers: {
+      //     "Authorization": "token c935aff1cf939502a09307767a63e8e8aece84a8"
+      //   }
+      // }
+    )
     .then((res) => {
       res.data["all"] = res.data["all"].reverse().slice(0,10);
       res.data["owner"] = res.data["owner"].reverse().slice(0,10);
