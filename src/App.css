@@ -21,7 +21,6 @@
 
 .App-content {
   margin: auto;
-  /* border: 2px solid #111; */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -35,20 +34,37 @@
 .repos {
   max-height: 30em;
   overflow: auto;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
 }
 
 .repos::-webkit-scrollbar { 
-  width: 0.2rem !important;
+  width: 0 !important;
 }
-/* .element { overflow: -moz-scrollbars-none; } */
-/* .element { -ms-overflow-style: none; } */
 
+.ui.list>.item>.icon+.content {
+  text-align: left;
+}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+input {
+  background: #fff !important;
+  border: 1px solid #111 !important;
+  padding: 1.2rem !important;
+  outline: 0 !important;
+}
+
+button:hover {
+  filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.9));
+}
+
+.app {
+  min-width: 30rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .app{
+    min-width: 85vw;
+    min-height: 85vh;
   }
 }
