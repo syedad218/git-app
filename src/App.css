@@ -10,7 +10,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 5vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,9 +19,30 @@
   color: white;
 }
 
+.App-content {
+  margin: auto;
+  /* border: 2px solid #111; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .App-link {
   color: #61dafb;
 }
+
+.repos {
+  max-height: 30em;
+  overflow: auto;
+}
+
+.repos::-webkit-scrollbar { 
+  width: 0.2rem !important;
+}
+/* .element { overflow: -moz-scrollbars-none; } */
+/* .element { -ms-overflow-style: none; } */
+
 
 @keyframes App-logo-spin {
   from {
