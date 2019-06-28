@@ -9,6 +9,6 @@ REACT_APP_SECRET_KEY=2131243353asdnalksdnl1k23
 
 ### npm start ###
 
-<img src="./ezgif.com-video-to-gif.gif" alt="App Video" height="500" width="300">
+<img src="./ezgif.com-video-to-gif.gif" alt="App Video" height="400" width="300">
 
 
